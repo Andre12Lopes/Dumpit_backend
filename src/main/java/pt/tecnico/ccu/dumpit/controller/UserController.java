@@ -28,7 +28,7 @@ public class UserController
 
     private UserDTO toDTO(User user)
     {
-        return new UserDTO(Long.toString(user.getId()), user.getAddress(), user.getName(), user.getNif(), user.getPhoneNumber(), user.getEmail(), Double.toString(20.5));
+        return new UserDTO(Long.toString(user.getId()), user.getAddress(), user.getName(), user.getNif(), user.getPhoneNumber(), user.getEmail(), user.getTokens());
     }
 
     private List<UserDTO> toDTOs(List<User> users)

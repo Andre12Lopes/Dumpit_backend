@@ -58,7 +58,8 @@ public class DataRepository
 
     private void populate()
     {
-        User user = new User(1L, "Av. Rovisco Pais 1, 1049-001 Lisboa", "Joana", "999999999", "+351 000000000", "joana@mail.pt");
+        User user = new User(1L, "Av. Rovisco Pais 1, 1049-001 Lisboa", "Joana", "999999999",
+                "+351 000000000", "joana@mail.pt", "0x0913e73571C0a8822A134C7020237555d1bC20bb");
 
         user.addShopTransaction(new Transaction("Pingo Doce", LocalDate.of(2021, 12, 15), -1));
         user.addShopTransaction(new Transaction("100 Montaditos", LocalDate.of(2021, 12, 5), -2.5));
