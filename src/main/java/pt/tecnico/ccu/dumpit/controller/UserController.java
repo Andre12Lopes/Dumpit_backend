@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pt.tecnico.ccu.dumpit.Utils.Blockchain;
 import pt.tecnico.ccu.dumpit.domain.model.Transaction;
 import pt.tecnico.ccu.dumpit.domain.model.User;
 import pt.tecnico.ccu.dumpit.dto.TransactionDTO;
@@ -12,6 +13,7 @@ import pt.tecnico.ccu.dumpit.service.UserService;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 @CrossOrigin
@@ -28,7 +30,7 @@ public class UserController
 
     private UserDTO toDTO(User user)
     {
-        return new UserDTO(Long.toString(user.getId()), user.getAddress(), user.getName(), user.getNif(), user.getPhoneNumber(), user.getEmail(), user.getTokens());
+        return new UserDTO(Long.toString(user.getId()), user.getAddress(), user.getName(), user.getNif(), user.getPhoneNumber(), user.getEmail(), Blockchain.getUserTokens(user.getAccountAddress()));
     }
 
     private List<UserDTO> toDTOs(List<User> users)
@@ -41,7 +43,7 @@ public class UserController
         return new TransactionDTO(transaction.getPlace(), transaction.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), Double.toString(transaction.getTokenAmount()));
     }
 
-    private List<TransactionDTO> toDTOsTransactions(List<Transaction> transactions)
+    private List<TransactionDTO> toDTOsTransactions(Queue<Transaction> transactions)
     {
         return transactions.stream().map(this::toDTO).collect(Collectors.toList());
     }
@@ -72,7 +74,7 @@ public class UserController
 
         if (user != null)
         {
-            return new ResponseEntity<>(toDTOsTransactions(user.getShopTransactions()), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(toDTOsTransactions(user.getShopTransactions()), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -85,7 +87,7 @@ public class UserController
 
         if (user != null)
         {
-            return new ResponseEntity<>(toDTOsTransactions(user.getTrashCanTransactions()), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(toDTOsTransactions(user.getTrashCanTransactions()), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

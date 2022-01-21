@@ -1,11 +1,13 @@
 package pt.tecnico.ccu.dumpit.domain.repository;
 
 import org.springframework.stereotype.Repository;
+import pt.tecnico.ccu.dumpit.Utils.BlockchainData;
 import pt.tecnico.ccu.dumpit.domain.model.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class DataRepository
@@ -59,16 +61,16 @@ public class DataRepository
     private void populate()
     {
         User user = new User(1L, "Av. Rovisco Pais 1, 1049-001 Lisboa", "Joana", "999999999",
-                "+351 000000000", "joana@mail.pt", "0x0913e73571C0a8822A134C7020237555d1bC20bb");
+                "+351 000000000", "joana@mail.pt", BlockchainData.USER_ACCOUNT, BlockchainData.USER_PRIVATE_KEY);
 
-        user.addShopTransaction(new Transaction("Pingo Doce", LocalDate.of(2021, 12, 15), -1));
-        user.addShopTransaction(new Transaction("100 Montaditos", LocalDate.of(2021, 12, 5), -2.5));
-
-        user.addTrashCanTransaction(new Transaction("Arco do Cego", LocalDate.of(2021, 12, 13), 0.3));
-        user.addTrashCanTransaction(new Transaction("Bairro Alto", LocalDate.of(2021, 12, 11), 0.1));
-        user.addTrashCanTransaction(new Transaction("Alameda", LocalDate.of(2021, 12, 5), 0.4));
-        user.addTrashCanTransaction(new Transaction("Anjos", LocalDate.of(2021, 12, 5), 0.3));
-        user.addTrashCanTransaction(new Transaction("Martim Moniz", LocalDate.of(2021, 12, 1), 0.1));
+//        user.addShopTransaction(new Transaction("Pingo Doce", LocalDate.of(2021, 12, 15), -1));
+//        user.addShopTransaction(new Transaction("100 Montaditos", LocalDate.of(2021, 12, 5), -2.5));
+//
+//        user.addTrashCanTransaction(new Transaction("Arco do Cego", LocalDate.of(2021, 12, 13), 0.3));
+//        user.addTrashCanTransaction(new Transaction("Bairro Alto", LocalDate.of(2021, 12, 11), 0.1));
+//        user.addTrashCanTransaction(new Transaction("Alameda", LocalDate.of(2021, 12, 5), 0.4));
+//        user.addTrashCanTransaction(new Transaction("Anjos", LocalDate.of(2021, 12, 5), 0.3));
+//        user.addTrashCanTransaction(new Transaction("Martim Moniz", LocalDate.of(2021, 12, 1), 0.1));
 
         users.add(user);
 

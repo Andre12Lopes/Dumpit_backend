@@ -13,7 +13,8 @@ public class TrashCanService
     private final DataRepository dataRepository;
 
     @Autowired
-    public TrashCanService(DataRepository dataRepository) {
+    public TrashCanService(DataRepository dataRepository)
+    {
         this.dataRepository = dataRepository;
     }
 
