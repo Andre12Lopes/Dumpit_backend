@@ -82,11 +82,22 @@ public class DataRepository
         shops.add(new Shop(6L, "R. Cordeiro de Sousa, 1050-077 Lisboa", "Lidl"));
         shops.add(new Shop(7L, "R. Filipe Folque 10, 1050-999 Lisboa", "ALDI"));
         shops.add(new Shop(8L, "R. Frederico George 20, 1600-414 Lisboa", "ALDI"));
+        shops.add(new Shop(9L, "Av. Barbosa Du Bocage 117, 1050-031 Lisboa", "Continente"));
+        shops.add(new Shop(10L, "Avenida 5 de Outubro 95, 1500-051 Lisboa", "Pingo Doce"));
+        shops.add(new Shop(11L, "Av. Columbano Bordalo Pinheiro, 1070-060 Lisboa", "Lidl"));
+        shops.add(new Shop(12L, "R. Bartolomeu Dias, 2745-254 Queluz", "ALDI"));
 
         trashCans.add(new TrashCan(1L, "R. Barão de Sabrosa 104-172", 124L));
         trashCans.add(new TrashCan(2L, "R. Carvalho Araújo", 258L));
         trashCans.add(new TrashCan(3L, "R. Rosa Damasceno 2-22", 567L));
         trashCans.add(new TrashCan(4L, "R. Abade Faria 31", 845L));
         trashCans.add(new TrashCan(5L, "R. Jorge Castilho 1613f", 1056L));
+        trashCans.add(new TrashCan(6L, "R. Morais Soares", 1206L));
+        trashCans.add(new TrashCan(7L, "R. Ferreira da Silva", 1597L));
+        trashCans.add(new TrashCan(8L, "Av. Alm. Reis", 1736L));
+        trashCans.add(new TrashCan(9L, "R. Alves Redol", 1945L));
+        trashCans.add(new TrashCan(10L, "Avenida 5 de Outubro", 2037L));
+        trashCans.add(new TrashCan(11L, "Av. Defensores Chaves", 2876L));
+        trashCans.add(new TrashCan(12L, "Av. Praia da Vitória", 4070L));
     }
 }
